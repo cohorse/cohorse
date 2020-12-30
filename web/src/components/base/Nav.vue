@@ -16,7 +16,6 @@
   <CBox
     as="nav"
     h="50px"
-    px="20px"
     py="5px"
     d="flex"
     justifyContent="left"
@@ -25,6 +24,7 @@
   >
     <CFlex
       :width="['100%', '100%', '100%', '1200px']"
+      px="6"
       m="0 auto"
       align="center"
     >

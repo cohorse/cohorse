@@ -14,8 +14,9 @@
 
 <template>
   <CFlex
-    :width="['100%', '100%', '100%', '1200px']"
+    :maxWidth="['100%', '100%', '100%', '1200px']"
     m="0 auto"
+    overflowX="hidden"
     minH="calc(100vh - 50px - 50px)"
   >
     <Landing />
