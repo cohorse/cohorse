@@ -45,29 +45,13 @@
 </template>
 
 <script>
-import { mapGetters, mapActions } from 'vuex'
+import { mapGetters } from 'vuex'
 
 export default {
   name: 'Footer',
   computed: {
     ...mapGetters([
       'sysInfo'
-    ])
-  },
-  async mounted() {
-    // TODO: For now, we need to delay the action dispatch. This should of
-    // course be no longer needed as soon as we have the global application
-    // loading state.
-    await new Promise(r => setTimeout(r, 2000))
-    try {
-      await this.setSysInfo()
-    } catch(err) {
-      console.log(err) 
-    }
-  },
-  methods: {
-    ...mapActions([
-      'setSysInfo'
     ])
   }
 }

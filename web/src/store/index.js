@@ -19,6 +19,7 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: () => ({
+    appLoaded: false,
     sysInfo: {
       version: null,
       build: null,
@@ -31,9 +32,12 @@ export default new Vuex.Store({
       if(resp.err != null) {
         throw new Error(resp.err)
       }
-    }
+    } 
   },
   mutations: {
+    finishAppLoading(state) {
+      state.appLoaded = true
+    },
     setSysInfoVersion(state, version) {
       state.sysInfo.version = version
     },

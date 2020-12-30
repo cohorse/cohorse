@@ -74,6 +74,7 @@ var (
 				s.Commit("setSysInfoVersion", sysinfo.Version)
 				s.Commit("setSysInfoBuild", sysinfo.Build)
 				s.Commit("setSysInfoCommit", sysinfo.Commit)
+				s.Commit("finishAppLoading", nil)
 			}),
 		}),
 	}
