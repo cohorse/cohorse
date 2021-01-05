@@ -14,22 +14,30 @@
 
 <template>
   <CFlex
-    :maxWidth="['100%', '100%', '100%', '1200px']"
-    m="0 auto"
-    overflowX="hidden"
-    minH="calc(100vh - 50px - 50px)"
+    direction="column"
+    justify="center"
+    align="center"
+    width="100vw"
+    height="100vh"
+    opacity="0"
+    animation="fade-in 2s linear forwards"
   >
-    <Landing />
+    <CImage
+      width="150px"
+      :src="require('../../assets/logo_loading.svg')" />
   </CFlex>
 </template>
 
-<script>
-import Landing from '../layouts/Landing';
-
-export default {
-  name: 'Content',
-  components: {
-    Landing
+<style>
+  @keyframes fade-in {
+    to {
+      opacity: 1;
+    }
   }
+</style>
+
+<script>
+export default {
+  name: 'Loading',
 }
 </script>

@@ -13,7 +13,7 @@
 // limitations under the License.
 
 <template>
-  <CFlex align="center">
+  <CStack align="center" p="6" is-inline>
     <CFlex direction="column" pr="6">
       <CStack :spacing="5">
         <CHeading as="h1" size="xl" fontWeight="bold" color="primary.800">
@@ -66,12 +66,12 @@
       ml="auto"
       rounded="lg"
       transform="skew(0, 1deg)"
-      :width="['80%', '60%', '50%']"
+      :height="['0', '0', '300px', '400px']"
+      :display="['hidden', 'hidden', 'block', 'block']"
       boxShadow="1px 1px 7px 0px rgb(0 0 0 / 27%)"
       my="6"
-      height="400px"
       :src="require('../../assets/students_social_distancing.jpg')" />
-  </CFlex>
+  </CStack>
 </template>
 
 <script>

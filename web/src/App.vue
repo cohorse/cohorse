@@ -15,9 +15,12 @@
 <template>
   <CThemeProvider>
     <CReset />
-    <Nav />
-    <Content />
-    <Footer />
+
+    <Loading v-if="!appLoaded" />
+
+    <Nav v-if="appLoaded" />
+    <Content v-if="appLoaded" />
+    <Footer v-if="appLoaded" />
   </CThemeProvider>
 </template>
 
@@ -25,13 +28,35 @@
 import Nav from './components/base/Nav'
 import Footer from './components/base/Footer'
 import Content from './components/base/Content'
+import Loading from './components/layouts/Loading'
+
+import { mapState, mapActions } from 'vuex'
 
 export default {
   name: "App",
   components: {
     Nav,
     Footer,
-    Content
+    Content,
+    Loading
+  },
+  computed: mapState([
+    'appLoaded'
+  ]),
+  methods: {
+    ...mapActions([
+      'setSysInfo'
+    ])
+  },
+  async mounted() {
+    // Show the loading animation for at least 2 seconds, which is half of the
+    // animation's timing (one full painting without disassembly).
+    await new Promise(r => setTimeout(r, 2000))
+    try {
+      await this.setSysInfo()
+    } catch(err) {
+      console.log(err) 
+    }
   }
 }
 </script>
